@@ -41,17 +41,17 @@ namespace Email_Html_POC.Utilities.Common
                 throw null;
             }
         }
-        public MemoryStream ConvertToPDF()
+        public byte[] ConvertToPDF()
         {
-            string dataDir = Directory.GetCurrentDirectory();
             string _template = FormEmailBody();
             HtmlLoadOptions options = new HtmlLoadOptions();
             byte[] byteArray = Encoding.UTF8.GetBytes(_template);
             MemoryStream stream = new MemoryStream(byteArray);
             Document pdfDocument = new Document(stream,options);
             var outputFile = new MemoryStream();
-            pdfDocument.Save(outputFile, SaveFormat.Pdf);
-            return outputFile;
+            pdfDocument.Save(outputFile);
+            byte[] _btPDF=outputFile.ToArray();
+            return _btPDF;
             //pdfDocument.Save(dataDir + "\\html_test.PDF",SaveFormat.Pdf);
             //pdfDocument.Save();
         }

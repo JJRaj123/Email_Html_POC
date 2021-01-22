@@ -11,6 +11,6 @@ namespace Email_Html_POC.Utilities.Common
     {
         bool ValidateEmail(string mail);
         string FormEmailBody();
-        MemoryStream ConvertToPDF();
+        byte[] ConvertToPDF();
     }
 }

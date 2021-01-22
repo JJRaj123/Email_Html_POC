@@ -7,6 +7,6 @@ namespace Email_Html_POC.Services
 {
     public interface IPdfGeneratorService
     {
-        bool GeneratePdf();
+        byte[] GeneratePdf();
     }
 }

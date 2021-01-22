@@ -15,16 +15,15 @@ namespace Email_Html_POC.Services
         {
             _commonHelperService = commonHelperService;
         }
-        public bool GeneratePdf()
+        public byte[] GeneratePdf()
         {
             try
             {
-                MemoryStream _doc= _commonHelperService.ConvertToPDF();
-                return true;
+                return _commonHelperService.ConvertToPDF();
             }
             catch(Exception ex)
             {
-                return false;
+                return null;
             }
         }
     }
